@@ -124,4 +124,5 @@ node server.js
 
 # How to manage node process
 Use [PM2](http://pm2.keymetrics.io/)
+
 process.json is file where pm2 can be configured.
