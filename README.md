@@ -110,4 +110,5 @@ module.exports = function() {
 } 
 ```
 
-# PM2 can be used to manage node process.
+# How to manage node process
+Use [PM2](http://pm2.keymetrics.io/)
