@@ -97,4 +97,17 @@ module.exports = helpers;
 ### modules
 Create a new folder for a separate module. Write routes in index.js of the folder and include that file in modules/index.js file. Module specific service classes and controllers can be written in separate folders in a module.
 
+Load user module routes
+```js
+'use strict'
+
+var plugins = [
+    { register : require('./user/index.js') }
+];
+
+module.exports = function() {
+    return plugins;
+} 
+```
+
 # PM2 can be used to manage node process.
