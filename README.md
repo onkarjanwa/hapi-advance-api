@@ -31,11 +31,68 @@ Define all auth strategies in this folder.
 ### config
 Define common and database config in this folder. Write specific config file in config/component folder and include it in index.js file.
 
+Example common config module
+```js
+'use strict'
+
+const config = {  
+    env: process.env.NODE_ENV,
+    logger: {
+        level: process.env.LOG_LEVEL || 'info',
+        enabled: process.env.LOG_ENABLED ? process.env.LOG_ENABLED.toLowerCase() === 'true' : false
+    },
+    server: {
+        port: Number(process.env.PORT)
+    },
+    date_format: 'MM-DD-YYYY',
+    bcryptSaltRounds: 10
+}
+
+module.exports = config
+```
+
 ### db
 Define all db connection and db models in this folder. Write models in db/models folder.
 
+Example mysql config
+```js
+'use strict'
+
+const knex = require('knex');
+const config = require('./../config/index');
+
+module.exports = knex({
+    client: 'mysql',
+    debug: true,
+    connection: {
+        host: config.mysql.host,
+        user: config.mysql.username,
+        password: config.mysql.password,
+        database: config.mysql.dbname,
+        charset: 'utf8',
+    }
+});
+```
+
 ### helpers
 Application specific helper methods can be written in index.js of this folder.
+
+Example index.js
+```js
+'use strict'
+
+const moment = require('moment');
+
+var helpers = {
+    isDevelopmentEvn: function() {
+        return true;
+    },
+    formatDate: function(date, inputFormat, outputFormat) {
+        return moment(date, inputFormat).format(outputFormat);
+    }
+}
+module.exports = helpers; 
+```
 
 ### modules
 Create a new folder for a separate module. Write routes in index.js of the folder and include that file in modules/index.js file. Module specific service classes and controllers can be written in separate folders in a module.
