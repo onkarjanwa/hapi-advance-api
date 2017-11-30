@@ -25,6 +25,13 @@ MYSQL_DB_NAME=test
 
 # Folder structure:
 
+1. auth_strategies
+2. config
+3. db
+4. events
+5. helpers
+6. modules
+
 ### auth_strategies
 Define all auth strategies in this folder.
 
@@ -73,6 +80,9 @@ module.exports = knex({
     }
 });
 ```
+
+### events
+Define all app events in this folder.
 
 ### helpers
 Application specific helper methods can be written in index.js of this folder.
