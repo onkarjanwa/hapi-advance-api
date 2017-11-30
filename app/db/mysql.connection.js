@@ -1,7 +1,7 @@
 'use strict'
 
 const knex = require('knex');
-const config = require('./../config/index');
+const config = loadConfig();
 
 module.exports = knex({
     client: 'mysql',

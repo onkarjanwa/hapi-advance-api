@@ -1,9 +1,9 @@
 'use strict';
 var moment = require('moment');
-var knexInstance = require('./../../../db/mysql.connection.js');
+var knexInstance = loadDb('mysql.connection.js');
 var bookshelf = require('bookshelf')(knexInstance);
 
-var UserDbModel = require('./../../../db/models/mysql/user.js');
+var UserDbModel = loadDb('models/mysql/user.js');
 
 var UserLoginController = {};
 
